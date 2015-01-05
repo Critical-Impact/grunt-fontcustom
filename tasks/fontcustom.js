@@ -51,12 +51,17 @@ module.exports = function (grunt) {
           args.push('--font-name', options.name);
       }
 
+      if (options.nohash) {
+          args.push('--no-hash');
+      }      
+
       args.push('--debug');
 
     // don't want these as CLI flags
     delete options.src;
     delete options.dest;
     delete options.name;
+    delete options.nohash;
 
     // add converted options
     [].push.apply(args, helpers.optsToArgs(options));
