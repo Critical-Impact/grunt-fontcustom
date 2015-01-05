@@ -47,10 +47,16 @@ module.exports = function (grunt) {
     if (options.dest) {
       args.push('--output', options.dest);
     }
+      if (options.name) {
+          args.push('--font-name', options.name);
+      }
+
+      args.push('--debug');
 
     // don't want these as CLI flags
     delete options.src;
     delete options.dest;
+    delete options.name;
 
     // add converted options
     [].push.apply(args, helpers.optsToArgs(options));
